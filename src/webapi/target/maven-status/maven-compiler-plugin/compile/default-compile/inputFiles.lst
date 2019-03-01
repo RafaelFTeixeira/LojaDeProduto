@@ -1,0 +1,16 @@
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\seguranca\Autenticacao.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\aplicacao\categoria\ConsultaDeCategoria.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\LojaApplication.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\seguranca\AutenticacaoFilter.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\seguranca\LoginFilter.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\aplicacao\categoria\ConsultaDeCategoriasService.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\controllers\ProdutoController.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\dominio\Produto.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\infraestrutura\persistencia\ProdutoPersistencia.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\aplicacao\categoria\CategoriaDto.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\aplicacao\usuario\UsuarioDto.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\dominio\Categoria.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\dominio\ExcecaoDeDominio.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\infraestrutura\persistencia\CategoriaPersistencia.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\seguranca\ConfiguracaoDeSeguranca.java
+D:\Projetos\BP\src\webapi\src\main\java\com\bp\rest\controllers\CategoriaController.java
