@@ -24,10 +24,7 @@ public class ConsultaDeCategoria {
   @Transactional(readOnly = true)
   public List<CategoriaDto> obterTodos() {
     List<Categoria> categorias = this.categoriaPersistencia.findAll();
-
-    List<CategoriaDto> categoriasDto = categorias.stream().map(this::mapearCategoriaDto).collect(Collectors.toList());
-
-    return categoriasDto;
+    return categorias.stream().map(this::mapearCategoriaDto).collect(Collectors.toList());
   }
 
   @Transactional(readOnly = true)

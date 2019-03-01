@@ -16,7 +16,7 @@ public class Categoria {
     }
 
     public Categoria(String nome) {
-        new ExcecaoDeDominio().quandoEhNuloOuVazio(nome, "Informe o descrição da categoria");
+        new ExcecaoDeDominio().quandoEhNuloOuVazio(nome, "Informe o descrição da categoria").entaoDispara();;
         this.nome = nome;
     }
 

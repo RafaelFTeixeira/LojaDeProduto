@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/categorias")
@@ -34,8 +35,7 @@ public class CategoriaController {
   }
 
   @PostMapping
-  public void criar(CategoriaDto categoriaDto) {
-      cadastroDeCategoria.criar(categoriaDto);
+  public void criar(@RequestBody CategoriaDto categoriaDto) {
+    cadastroDeCategoria.criar(categoriaDto);
   }
-  
 }

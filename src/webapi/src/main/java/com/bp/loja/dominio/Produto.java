@@ -21,8 +21,9 @@ public class Produto {
   private Produto() {
   }
 
-  public Produto(Categoria categoria, String nome, BigDecimal preco, Integer quantidade, String descricao, String caminhoDaImagem) {
-    Validar(categoria, nome, preco, quantidade);
+  public Produto(Categoria categoria, String nome, BigDecimal preco, Integer quantidade, String descricao,
+      String caminhoDaImagem) {
+    validarCamposObrigatorios(categoria, nome, preco, quantidade);
     this.categoria = categoria;
     this.nome = nome;
     this.descricao = descricao;
@@ -31,11 +32,13 @@ public class Produto {
     this.caminhoDaImagem = caminhoDaImagem;
   }
 
-  private void Validar(Categoria categoria, String nome, BigDecimal preco, Integer quantidade) {
-    new ExcecaoDeDominio().quandoEhNulo(categoria, "Informe uma categoria para o produto")
-        .quandoEhNuloOuVazio(nome, "Informe um nome para o produto")
-        .quandoEhNulo(preco, "Informe um preço para o produto")
-        .quandoEhNulo(quantidade, "Informe uma quantidade para o produto").entaoDispara();
+  private static void validarCamposObrigatorios(Categoria categoria, String nome, BigDecimal preco, Integer quantidade) {
+    new ExcecaoDeDominio()
+        .quandoEhNulo(categoria, "A categoria é obrigatória")
+        .quandoEhNuloOuVazio(nome, "O nome é obrigatório")
+        .quandoEhNulo(preco, "O preço é obrigatório")
+        .quandoEhNulo(quantidade, "A quantidade é obrigatória")
+        .entaoDispara();
   }
 
   public Categoria getCategoria() {
