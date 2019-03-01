@@ -34,9 +34,8 @@ public class CategoriaController {
   }
 
   @PostMapping
-  public HttpStatus criar(CategoriaDto categoriaDto) {
+  public void criar(CategoriaDto categoriaDto) {
       cadastroDeCategoria.criar(categoriaDto);
-      return HttpStatus.OK;
   }
   
 }

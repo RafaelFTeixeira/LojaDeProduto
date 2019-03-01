@@ -8,6 +8,7 @@ import com.bp.loja.infraestrutura.persistencia.CategoriaPersistencia;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class ConsultaDeCategoria {
   private CategoriaPersistencia categoriaPersistencia;
 
+  @Autowired
   public ConsultaDeCategoria(CategoriaPersistencia categoriaPersistencia) {
     this.categoriaPersistencia = categoriaPersistencia;
   }
