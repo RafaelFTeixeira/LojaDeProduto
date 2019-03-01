@@ -2,22 +2,28 @@ package com.bp.loja.controllers;
 
 import java.util.List;
 
+import com.bp.loja.aplicacao.categoria.CadastroDeCategoria;
 import com.bp.loja.aplicacao.categoria.CategoriaDto;
 import com.bp.loja.aplicacao.categoria.ConsultaDeCategoria;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @RestController
 @RequestMapping("/categorias")
 public class CategoriaController {
   private ConsultaDeCategoria consultaDeCategoria;
+  private CadastroDeCategoria cadastroDeCategoria;
 
-  public CategoriaController(ConsultaDeCategoria consultaDeCategoria) {
+  @Autowired
+  public CategoriaController(ConsultaDeCategoria consultaDeCategoria, CadastroDeCategoria cadastroDeCategoria) {
     this.consultaDeCategoria = consultaDeCategoria;
+    this.cadastroDeCategoria = cadastroDeCategoria;
   }
 
   @GetMapping
@@ -26,4 +32,11 @@ public class CategoriaController {
 
     return new ResponseEntity<>(categorias, HttpStatus.OK);
   }
+
+  @PostMapping
+  public HttpStatus criar(CategoriaDto categoriaDto) {
+      cadastroDeCategoria.criar(categoriaDto);
+      return HttpStatus.OK;
+  }
+  
 }
