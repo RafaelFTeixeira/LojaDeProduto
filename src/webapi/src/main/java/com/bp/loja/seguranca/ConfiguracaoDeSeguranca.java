@@ -23,10 +23,14 @@ public class ConfiguracaoDeSeguranca extends WebSecurityConfigurerAdapter {
 
   @Override
   protected void configure(HttpSecurity httpSecurity) throws Exception {
-    httpSecurity.csrf().disable().authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll().anyRequest()
+    httpSecurity.csrf().disable().authorizeRequests()
+        .antMatchers(HttpMethod.POST, "/login").permitAll()
+        .antMatchers("/", "/h2-console/**").permitAll().anyRequest()
         .authenticated().and()
         .addFilterBefore(new LoginFilter("/login", authenticationManager()), UsernamePasswordAuthenticationFilter.class)
         .addFilterBefore(new AutenticacaoFilter(), UsernamePasswordAuthenticationFilter.class);
+    
+    httpSecurity.headers().frameOptions().disable();
   }
 
   @Bean

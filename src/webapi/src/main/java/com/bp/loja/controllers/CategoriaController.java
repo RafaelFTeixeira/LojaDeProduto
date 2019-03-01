@@ -20,8 +20,8 @@ public class CategoriaController {
     this.consultaDeCategoria = consultaDeCategoria;
   }
 
-  @GetMapping("")
-  public ResponseEntity<List<CategoriaDto>> obterTeste() {
+  @GetMapping
+  public ResponseEntity<List<CategoriaDto>> obterTodos() {
     List<CategoriaDto> categorias = consultaDeCategoria.obterTodos();
 
     return new ResponseEntity<>(categorias, HttpStatus.OK);
