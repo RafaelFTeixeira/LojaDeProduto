@@ -15,10 +15,10 @@ ALTER TABLE IF EXISTS produto
    REFERENCES categoria;
 
 
-insert into produto(nome, descricao, preco, quantidade, caminho_da_imagem, categoria_id)
-	values('FAZER 250', 'YAMAHA FAZER 250', 15499, 3, '',
-		  (select id from categoria limit 1));
+INSERT INTO produto(nome, descricao, preco, quantidade, caminho_da_imagem, categoria_id)
+	VALUES('FAZER 250', 'YAMAHA FAZER 250', 15499, 3, '',
+		  (SELECT id FROM categoria LIMIT 1));
 
-insert into produto(nome, descricao, preco, quantidade, caminho_da_imagem, categoria_id)
-	values('CB 500', 'HONDA CB 500CC', 23899, 2, '',
-		  (select id from categoria limit 1));
+INSERT INTO produto(nome, descricao, preco, quantidade, caminho_da_imagem, categoria_id)
+	VALUES('CB 500', 'HONDA CB 500CC', 23899, 2, '',
+		  (SELECT id FROM categoria LIMIT 1));
