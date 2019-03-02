@@ -2,9 +2,8 @@ package com.bp.loja.controllers;
 
 import java.util.List;
 
-import com.bp.loja.dominio.Cliente;
-import com.bp.loja.infraestrutura.persistencia.ClientePersistencia;
-
+import com.bp.loja.aplicacao.cliente.ClienteDto;
+import com.bp.loja.aplicacao.cliente.ConsultaDeCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,17 +14,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
-  private ClientePersistencia clientePersitencia;
+  private ConsultaDeCliente consultaDeCliente;
 
   @Autowired
-  public ClienteController(ClientePersistencia clientePersistencia) {
-    this.clientePersitencia = clientePersistencia;
+  public ClienteController(ConsultaDeCliente consultaDeCliente) {
+    this.consultaDeCliente = consultaDeCliente;
   }
 
   @GetMapping
-  public ResponseEntity<List<Cliente>> obterTodos() {
-    List<Cliente> clientes = clientePersitencia.findAll();
-
+  public ResponseEntity<List<ClienteDto>> obterTodos() {
+    List<ClienteDto> clientes = consultaDeCliente.obterTodos();
     return new ResponseEntity<>(clientes, HttpStatus.OK);
   }
  
