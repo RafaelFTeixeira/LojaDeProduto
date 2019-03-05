@@ -40,12 +40,13 @@ public class ConsultaDeCliente {
 
   private EnderecoDto mapearEnderecoDto(Endereco endereco) {
     EnderecoDto enderecoDto = new EnderecoDto();
-    enderecoDto.cidade = endereco.getCidade();
-    enderecoDto.estado = endereco.getEstado();
-    enderecoDto.cep = endereco.getCep();
-    enderecoDto.rua = endereco.getRua();
-    enderecoDto.bairro = endereco.getBairro();
-
+    if (null != endereco) {
+      enderecoDto.cidade = endereco.getCidade();
+      enderecoDto.estado = endereco.getEstado();
+      enderecoDto.cep = endereco.getCep();
+      enderecoDto.rua = endereco.getRua();
+      enderecoDto.bairro = endereco.getBairro();
+    }
     return enderecoDto;
   }
 }
