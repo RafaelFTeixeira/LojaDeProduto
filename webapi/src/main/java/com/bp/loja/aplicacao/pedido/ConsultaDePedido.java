@@ -30,7 +30,7 @@ public class ConsultaDePedido {
   private PedidoDto mapearPedidoDto(Pedido pedido) {
     PedidoDto pedidoDto = new PedidoDto();
     pedidoDto.cliente = ClienteMapeado.mapearClienteDto(pedido.getCliente());
-    pedidoDto.dataDeCriacao = pedido.getData();
+    pedidoDto.dataDeCriacao = pedido.getDataDeCriacao();
     pedidoDto.Situacao = pedido.getSituacao().toString();
     return pedidoDto;
   }

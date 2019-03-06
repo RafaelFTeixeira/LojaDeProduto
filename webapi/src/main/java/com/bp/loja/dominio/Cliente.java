@@ -25,8 +25,11 @@ public class Cliente {
   }
 
   private static void validarCamposObrigatorios(String nome, String email, String senha) {
-    new ExcecaoDeDominio().quandoEhNulo(nome, "O nome é obrigatório").quandoEhNulo(email, "O e-mail é obrigatório")
-        .quandoEhNulo(senha, "A senha é obrigatória").entaoDispara();
+    new ExcecaoDeDominio()
+      .quandoEhNuloOuVazio(nome, "O nome é obrigatório")
+      .quandoEhNuloOuVazio(email, "O e-mail é obrigatório")
+      .quandoEhNuloOuVazio(senha, "A senha é obrigatória")
+      .entaoDispara();
   }
 
   public Long getId() {

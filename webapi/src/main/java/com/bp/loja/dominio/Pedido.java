@@ -43,7 +43,7 @@ public class Pedido {
     return id;
   }
 
-  public LocalDateTime getData() {
+  public LocalDateTime getDataDeCriacao() {
     return dataDeCriacao;
   }
 

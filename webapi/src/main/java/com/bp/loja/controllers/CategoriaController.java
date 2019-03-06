@@ -12,11 +12,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
-@RequestMapping("/categorias")
+@RequestMapping("/v1/categorias")
+@Api(value = "Categorias", description = "Categorias de um produto")
 public class CategoriaController {
   private ConsultaDeCategoria consultaDeCategoria;
   private CadastroDeCategoria cadastroDeCategoria;
@@ -28,6 +33,7 @@ public class CategoriaController {
   }
 
   @GetMapping
+  @ApiOperation(value = "Obter todas as categorias")
   public ResponseEntity<List<CategoriaDto>> obterTodos() {
     List<CategoriaDto> categorias = consultaDeCategoria.obterTodos();
 
@@ -35,6 +41,7 @@ public class CategoriaController {
   }
 
   @PostMapping
+  @ApiOperation(value = "Cadastro de categoria")
   public void criar(@RequestBody CategoriaDto categoriaDto) {
     cadastroDeCategoria.criar(categoriaDto);
   }

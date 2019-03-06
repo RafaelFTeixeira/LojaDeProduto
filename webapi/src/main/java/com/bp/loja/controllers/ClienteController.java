@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/v1/clientes")
+@Api(value = "Clientes", description = "Ações de clientes")
 public class ClienteController {
   private ConsultaDeCliente consultaDeCliente;
   private CadastroDeCliente cadastroDeCliente;
@@ -27,12 +31,14 @@ public class ClienteController {
   }
 
   @GetMapping
+  @ApiOperation(value = "Obter todos os clientes")
   public ResponseEntity<List<ClienteDto>> obterTodos() {
     List<ClienteDto> clientes = consultaDeCliente.obterTodos();
     return new ResponseEntity<>(clientes, HttpStatus.OK);
   }
 
   @PostMapping
+  @ApiOperation(value = "Cadastro de cliente")
   public ResponseEntity adicionar(@RequestBody ClienteDto ClienteDto) {
     cadastroDeCliente.criar(ClienteDto);
     return new ResponseEntity<>(HttpStatus.OK);

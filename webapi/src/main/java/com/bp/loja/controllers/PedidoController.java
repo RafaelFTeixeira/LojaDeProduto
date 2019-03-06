@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
-@RequestMapping("/pedidos")
+@RequestMapping("/v1/pedidos")
+@Api(value = "Pedidos", description = "Ações de pedidos")
 public class PedidoController {
   private ConsultaDePedido consultaDePedido;
   private CadastroDePedido cadastroDePedido;
@@ -29,12 +33,14 @@ public class PedidoController {
   }
 
   @GetMapping
+  @ApiOperation(value = "Obter todos os pedidos")
   public ResponseEntity<List<PedidoDto>> obterTodos() {
     List<PedidoDto> produtos = consultaDePedido.obterTodos();
     return new ResponseEntity<>(produtos, HttpStatus.OK);
   }
 
   @PostMapping
+  @ApiOperation(value = "Cadastro de pedido")
   public ResponseEntity adicionar(@RequestBody CadastroDePedidoDto pedidoDto) {
     cadastroDePedido.criar(pedidoDto);
     return new ResponseEntity<>(HttpStatus.OK);
