@@ -35,10 +35,6 @@ public class ConsultaDeCategoria {
   }
 
   private CategoriaDto mapearCategoriaDto(Categoria categoria) {
-    CategoriaDto categoriaDto = new CategoriaDto();
-    categoriaDto.id = categoria.getId();
-    categoriaDto.nome = categoria.getNome();
-
-    return categoriaDto;
+    return CategoriaMapeada.mapearCategoriaDto(categoria);
   }
 }
