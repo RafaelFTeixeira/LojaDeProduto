@@ -14,3 +14,5 @@ https://lojadeproduto.azurewebsites.net/login
 
 O token de autenticação gerado estará no Headers.
 
+Repositório no docker:
+https://hub.docker.com/r/rafaelteixeira/lojadeproduto/tags
